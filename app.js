@@ -18,6 +18,7 @@ maria.connect();
 var allowlist = [
   "https://localhost:3000",
   "https://localhost:3000",
+  "http://localhost:3000",
   "https://roadvs.vercel.app",
 ];
 
