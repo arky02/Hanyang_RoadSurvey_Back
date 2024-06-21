@@ -15,7 +15,11 @@ app.set("views", path.join(__dirname, "views"));
 var maria = require("./config/maria");
 maria.connect();
 
-var allowlist = ["http://localhost:3000", "https://roadvs.vercel.app"];
+var allowlist = [
+  "https://localhost:3000",
+  "https://localhost:3000",
+  "https://roadvs.vercel.app",
+];
 
 app.use((req, res, next) => {
   console.log("Received request:", req.method, req.url);
