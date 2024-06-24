@@ -16,9 +16,8 @@ var maria = require("./config/maria");
 maria.connect();
 
 var allowlist = [
-  "https://localhost:3000",
-  "https://localhost:3000",
   "http://localhost:3000",
+  "https://localhost:3000",
   "https://roadvs.vercel.app",
 ];
 
@@ -30,7 +29,7 @@ app.use((req, res, next) => {
 app.use(
   cors((req, callback) => {
     const origin = req.header("Origin");
-    // console.log("CORS Origin Check:", origin);
+    console.log("CORS Origin Check:", origin);
     const corsOptions = allowlist.includes(origin)
       ? { origin: true }
       : { origin: false };
