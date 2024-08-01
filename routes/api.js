@@ -22,6 +22,7 @@ router.post("/result/save", function (req, res) {
   var img_name = ""; // ex:
   var transport_score = null; // ex: 4
   var crime_score = null; // ex: 3
+  var walk_satisfaction = null; // ex: 3
 
   try {
     age = req.body.age;
@@ -29,6 +30,7 @@ router.post("/result/save", function (req, res) {
     img_name = req.body.img_name;
     transport_score = req.body?.transport_score;
     crime_score = req.body?.crime_score;
+    walk_satisfaction = req.body?.walk_satisfaction;
   } catch (e) {
     console.log("ERR (get request) : " + e);
     res.status(400).json({
@@ -37,7 +39,7 @@ router.post("/result/save", function (req, res) {
   }
 
   maria.query(
-    `INSERT INTO Result(age, sex, img_name, transport_score, crime_score) VALUES ("${age}","${sex}", "${img_name}", ${transport_score}, ${crime_score} )`,
+    `INSERT INTO Result(age, sex, img_name, transport_score, crime_score, walk_satisfaction) VALUES ("${age}","${sex}", "${img_name}", ${transport_score}, ${crime_score}, ${walk_satisfaction} )`,
     function (err) {
       if (!err) {
         console.log("result saved");
